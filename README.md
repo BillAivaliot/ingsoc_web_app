@@ -5,3 +5,5 @@ Simple web application.
 Users upload .har files. Sensitive information is removed. Rest goes to database.
 Users can see stuff about their internet traffic.
 Admin can see stuff about general internet traffic. (domains, request types, response statuses etc)
+
+Login logout and simple user profile management also implemented
