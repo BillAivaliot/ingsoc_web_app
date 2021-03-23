@@ -1,0 +1,54 @@
+
+CREATE TABLE `admins` (
+  `admin_name` varchar(63) DEFAULT NULL,
+  `password` varchar(63) DEFAULT NULL
+) ;
+
+INSERT INTO `admins` VALUES ('emmaneulegoldstein','ISee3verything');
+
+--
+-- Table structure for table `entries`
+--
+
+CREATE TABLE `entries` (
+  `entryid` int(11) NOT NULL AUTO_INCREMENT,
+  `userid` int(11) DEFAULT NULL,
+  `startedDateTime` varchar(63) DEFAULT NULL,
+  `reqmethod` varchar(16) DEFAULT NULL,
+  `requrl` varchar(64) DEFAULT NULL,
+  `resstatus` varchar(63) DEFAULT NULL,
+  `resstatustext` varchar(63) DEFAULT NULL,
+  `timingswait` varchar(63) DEFAULT NULL,
+  `serveripaddress` varchar(63) DEFAULT NULL,
+  PRIMARY KEY (`entryid`),
+  UNIQUE KEY `entryid` (`entryid`),
+  KEY `usridx` (`userid`),
+  KEY `methodidx` (`reqmethod`),
+  KEY `urlidx` (`requrl`),
+  CONSTRAINT `entries_ibfk_1` FOREIGN KEY (`userid`) REFERENCES `users` (`userid`)
+);
+
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `userid` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(63) DEFAULT NULL,
+  `password` varchar(63) DEFAULT NULL,
+  `email` varchar(63) DEFAULT NULL,
+  `last_upload` varchar(63) DEFAULT NULL,
+  PRIMARY KEY (`userid`),
+  UNIQUE KEY `indx1` (`username`),
+  UNIQUE KEY `indx3` (`email`),
+  KEY `indx2` (`password`)
+);
+
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` VALUES (1,'WinstonSmith','ilovejulia','smith@mintr.com','2021/02/14'),(2,'parsons','oceaniatisforthee','parsons@mintr.com','2021/02/14'),(3,'ableforth','3nglPodnr@','ableforth@mintr.com','2021/02/14'),(4,'syme','Che$$1sgood','syme@mintr.com','2021/02/14'),(5,'obrien','0Ranges@ndlemmons','obrien@mintr.com','2021/02/14'),(6,'katherine','1regr3ttgeTTingM@ri3d','test@test.test',NULL);
+
